@@ -1,0 +1,89 @@
+html,body {
+    height: 100%;
+}
+
+#main {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#pane {
+    background-color: rgb(48, 46, 46);
+    width: 300px;
+    border-right-style: solid;
+    border-color: black;
+}
+
+#title {
+    margin-top: 15%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    background-color: rgba(255,255,255,1) 0%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#tasks {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(66, 61, 61);
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+#taskbox {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 90%;
+    background-color: rgb(48, 46, 46);
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    align-items: center;
+}
+
+.list {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content:space-between;
+    padding: 6px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+#current {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+}
+
+.clist {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content:space-between;
+    padding: 6px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    width: 65%;
+}
