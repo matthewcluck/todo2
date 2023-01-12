@@ -1,5 +1,5 @@
-html,body {
-    height: 100%;
+html, body {
+    margin: 0; height: 100%; overflow: hidden
 }
 
 #main {
@@ -47,14 +47,16 @@ html,body {
 #taskbox {
     display: flex;
     flex-direction: column;
-    height: 90%;
-    width: 90%;
+    height: 85%;
+    width: 85%;
     background-color: rgb(48, 46, 46);
     border-radius: 4px;
     border-style: solid;
     border-color: black;
-    text-align: center;
-    align-items: center;
+    /* text-align: center; */
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    /* align-items: center; */
 }
 
 .list {
@@ -67,6 +69,7 @@ html,body {
     border-color: black;
     text-align: center;
     color: rgb(255, 255, 255);
+    user-select: none;
 }
 
 #current {
@@ -79,6 +82,20 @@ html,body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content:space-between;
     padding: 6px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    /* text-align: center; */
+    color: rgb(255, 255, 255);
+    width: 40%;
+    /* height: 30%; */
+    margin: 5px;
+}
+
+.cplus {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content:space-between;
+    padding: 6px;
     margin-bottom: 6px;
     border-radius: 4px;
     border-style: solid;
@@ -86,4 +103,42 @@ html,body {
     text-align: center;
     color: rgb(255, 255, 255);
     width: 65%;
+}
+
+.plus {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content:space-between;
+    padding: 6px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    user-select: none;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    width: 80%;
+    align-items: left;
+    margin-left: 18%;
+}
+
+.label {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content:space-between;
+    color: rgb(255, 255, 255);
+    margin: 5px;
+    font-weight: bold;
+    flex-shrink: 1;
+}
+
+#priority {
+    margin-left: 30%;
+}
+
+#due, #done, #remove {
+    margin-left: 8%;
 }
