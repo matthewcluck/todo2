@@ -3,10 +3,9 @@ const initialActive = document.querySelector('.lista');
 const addProject = document.querySelector('.plus');
 const projectsPane = document.querySelector('#projects');
 const title = document.querySelector('#current');
-const done = document.querySelectorAll('#done');
-const priorities1 = document.querySelectorAll('.priority1');
-const priorities2 = document.querySelectorAll('.priority2');
-const priorities3 = document.querySelectorAll('.priority3');
+const dones = document.querySelectorAll('.done');
+const dues = document.querySelectorAll('#due');
+const priorities = document.querySelectorAll('.priority');
 
 initialActive.addEventListener('dblclick', function(){
     let input = prompt('Enter Project Name','House Cleaning');
@@ -63,28 +62,35 @@ projects.forEach(project => {
     })
 })
 
-function priorityFunc(e){
-    console.log(e);
-}
-
-priorities1.forEach(priority => {
-    priority.addEventListener('click', priorityFunc(priority.class))
+dones.forEach(done => {
+    done.addEventListener('click',function(){
+        if (done.style.backgroundColor == "black"){
+            done.style.backgroundColor = "rgb(48, 46, 46)"
+        } else {done.style.backgroundColor = "black"}
+    })
 })
 
-
-// priorities1.forEach(priority => {
-//     priority.addEventListener('click', function(){
-//         priority.classList.remove('priority1');
-//         priority.classList.add('priority2');
-//         console.log('2');
-//     })
-// })
+priorities.forEach(priority => {
+    priority.addEventListener('click',function(){
+        if (priority.style.backgroundColor == "rgb(29, 161, 62)"){
+            priority.style.backgroundColor = "rgb(166, 170, 40)";
+        } else if (priority.style.backgroundColor == "rgb(166, 170, 40)"){
+            priority.style.backgroundColor = "rgb(220, 109, 30)";
+        } else {priority.style.backgroundColor = "rgb(29, 161, 62)"}
+    })
+})
 
 class Task {
     constructor(name, priority, date) {
         this.name = name;
         this.priority = priority;
         this.date = date;
+    }
+}
+
+class Project {
+    constructor(name) {
+        this.name = name;
     }
 }
 
