@@ -6,6 +6,9 @@ const title = document.querySelector('#current');
 const dones = document.querySelectorAll('.done');
 const dues = document.querySelectorAll('#due');
 const priorities = document.querySelectorAll('.priority');
+const plusTask = document.querySelector('#plustask');
+const taskBox = document.querySelector('#taskbox');
+const initialTasks = document.querySelectorAll('.clist');
 
 initialActive.addEventListener('dblclick', function(){
     let input = prompt('Enter Project Name','House Cleaning');
@@ -56,10 +59,18 @@ projects.forEach(project => {
         let active = document.querySelector('.lista');
         console.log(active);
         title.innerHTML = project.innerHTML;
+        title.className = project.id;
         active.classList.remove('lista');
         active.classList.add('list');
         project.classList.add('lista');
     })
+})
+
+initialTasks.forEach(task => {
+    task.addEventListener('dblclick', function(){
+        let input = prompt('Enter task description',task.innerHTML);
+        task.innerHTML = input;
+    });
 })
 
 dones.forEach(done => {
@@ -81,18 +92,51 @@ priorities.forEach(priority => {
 })
 
 class Task {
-    constructor(name, priority, date) {
+    constructor(name, id) {
         this.name = name;
-        this.priority = priority;
-        this.date = date;
+        this.id = id;
     }
 }
 
-class Project {
-    constructor(name) {
-        this.name = name;
-    }
-}
+plusTask.addEventListener('click',function(){
+    let task = new Task('New Task',title.className);
 
-const taskOne = new Task('blah','high','09122023');
+    let taskDesc = document.createElement('div');
+    taskDesc.classList.add('clist');
+    taskDesc.id = (task.id);
+    taskDesc.innerHTML = "New task, double click";
+    taskDesc.addEventListener('dblclick',function(){
+        let input = prompt('Enter task description','New Task');
+        taskDesc.innerHTML = input;
+    })
+    taskBox.insertBefore(taskDesc, plusTask);
+
+    let taskPriority = document.createElement('div');
+    taskPriority.classList.add('priority');
+    taskPriority.id = (task.id);
+    taskBox.insertBefore(taskPriority, plusTask);
+    taskPriority.addEventListener('click',function(){
+        if (taskPriority.style.backgroundColor == "rgb(29, 161, 62)"){
+            taskPriority.style.backgroundColor = "rgb(166, 170, 40)";
+        } else if (taskPriority.style.backgroundColor == "rgb(166, 170, 40)"){
+            taskPriority.style.backgroundColor = "rgb(220, 109, 30)";
+        } else {taskPriority.style.backgroundColor = "rgb(29, 161, 62)"}
+    });
+
+    let taskDue = document.createElement('div');
+    taskDue.classList.add('due');
+    taskDue.id = (task.id);
+    taskDue.innerHTML = '<input type="date"></input>';
+    taskBox.insertBefore(taskDue, plusTask);
+
+    let taskDone = document.createElement('div');
+    taskDone.classList.add('done');
+    taskDone.id = (task.id);
+    taskBox.insertBefore(taskDone, plusTask);
+    taskDone.addEventListener('click',function(){
+        if (taskDone.style.backgroundColor == "black"){
+            taskDone.style.backgroundColor = "rgb(48, 46, 46)"
+        } else {taskDone.style.backgroundColor = "black"}
+    })
+})
 
