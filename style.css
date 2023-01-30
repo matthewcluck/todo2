@@ -44,7 +44,7 @@ html, body {
     justify-content: center;
 }
 
-#taskbox {
+.taskbox {
     display: flex;
     align-content: flex-start;
     height: 85%;
